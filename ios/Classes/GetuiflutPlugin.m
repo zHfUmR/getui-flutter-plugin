@@ -202,7 +202,7 @@
 - (void)GeTuiSdkDidReceiveSlience:(NSDictionary *)userInfo fromGetui:(BOOL)fromGetui offLine:(BOOL)offLine appId:(NSString *)appId taskId:(NSString *)taskId msgId:(NSString *)msgId fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSString *payloadMsg = userInfo[@"payload"];
     NSDictionary *payloadMsgDic = @{ @"taskId": taskId ?: @"", @"messageId": msgId ?: @"", @"payloadMsg" : payloadMsg, @"offLine" : @(offLine), @"fromGetui": @(fromGetui)};
-    NSLog(@"\n>>>GTSDK GeTuiSdkDidReceiveSlience:%@", payloadMsgDic);
+    NSLog(@"\n>>>GTSDK GeTuiSdkDidReceiveSlience:%@", userInfo);
     [_channel invokeMethod:@"onReceivePayload" arguments:payloadMsgDic];
     
 }
